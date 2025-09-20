@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Li-RADS US Report for HCC Surveillance</title>
+    <title>LI-RADS US Report for HCC Surveillance</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -98,7 +98,7 @@
 </head>
 <body onload="resetValues()">
     <div class="container">
-        <h1>Li-RADS US Report for HCC Surveillance</h1>
+        <h1>LI-RADS US Report for HCC Surveillance</h1>
         <div class="button-container">
             <button onclick="resetValues()">Reset Values</button>
             <button onclick="copyReport()">Copy Report</button>
@@ -214,7 +214,7 @@
                 { id: "liverLesion", label: "Liver Lesion(s)" }
             ];
 
-            let report = "Li-RADS US Report for HCC Surveillance\n\n";
+            let report = "LI-RADS US Report for HCC Surveillance\n\n";
             fields.forEach(field => {
                 const value = document.getElementById(field.id).value;
                 if (value && value !== "") {
