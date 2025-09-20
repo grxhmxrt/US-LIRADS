@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LI-RADS US Report for HCC Surveillance</title>
+    <title>LI-Rads US Report for HCC Surveillance</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -70,7 +70,7 @@
             transform: translateY(-2px);
         }
         input, select {
-            box-sizing: border-box; /* Include padding/border in width */
+            box-sizing: border-box;
             border: 1px solid #d1d5db;
             border-radius: 5px;
             font-family: 'Roboto', sans-serif;
@@ -79,11 +79,11 @@
             transition: border-color 0.3s;
         }
         input {
-            width: calc(100% - 4px); /* Slightly reduce width to prevent overflow */
-            padding: 6px; /* Reduced padding for inputs */
+            width: calc(100% - 4px);
+            padding: 6px;
         }
         select {
-            width: 100%; /* Keep dropdowns full width */
+            width: 100%;
             padding: 7px;
         }
         input:focus, select:focus {
@@ -92,13 +92,20 @@
             box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
         }
         input[type="date"] {
-            padding: 6px; /* Match input padding */
+            padding: 6px;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+            padding: 0;
         }
     </style>
 </head>
 <body onload="resetValues()">
     <div class="container">
-        <h1>LI-RADS US Report for HCC Surveillance</h1>
+        <h1>LI-Rads US Report for HCC Surveillance</h1>
         <div class="button-container">
             <button onclick="resetValues()">Reset Values</button>
             <button onclick="copyReport()">Copy Report</button>
@@ -186,6 +193,7 @@
                 </td>
             </tr>
         </table>
+        <div class="copyright">&copy; 2025 Graham Martin</div>
     </div>
 
     <script>
@@ -214,7 +222,7 @@
                 { id: "liverLesion", label: "Liver Lesion(s)" }
             ];
 
-            let report = "LI-RADS US Report for HCC Surveillance\n\n";
+            let report = "LI-Rads US Report for HCC Surveillance\n\n";
             fields.forEach(field => {
                 const value = document.getElementById(field.id).value;
                 if (value && value !== "") {
