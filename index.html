@@ -70,14 +70,21 @@
             transform: translateY(-2px);
         }
         input, select {
-            width: 100%;
+            box-sizing: border-box; /* Include padding/border in width */
             border: 1px solid #d1d5db;
             border-radius: 5px;
-            padding: 8px;
             font-family: 'Roboto', sans-serif;
             font-size: 14px;
             background-color: #fff;
             transition: border-color 0.3s;
+        }
+        input {
+            width: calc(100% - 4px); /* Slightly reduce width to prevent overflow */
+            padding: 6px; /* Reduced padding for inputs */
+        }
+        select {
+            width: 100%; /* Keep dropdowns full width */
+            padding: 7px;
         }
         input:focus, select:focus {
             outline: none;
@@ -85,10 +92,7 @@
             box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
         }
         input[type="date"] {
-            padding: 7px;
-        }
-        select {
-            padding: 7px;
+            padding: 6px; /* Match input padding */
         }
     </style>
 </head>
