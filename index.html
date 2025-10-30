@@ -191,27 +191,21 @@
             });
         }
 
-        // Convert YYYY-MM-DD → "30 October 2025" (CRIS-safe)
-        function formatUKDateLong(iso) {
-            if (!iso) return 'Not specified';
-            const date = new Date(iso + 'T00:00:00'); // Force local date
-            return date.toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
-        }
-
-        // Fallback: DD/MM/YYYY
-        function formatUKDateShort(iso) {
+        // Convert YYYY-MM-DD → "30 October 2025 (30/10/2025)"
+        function formatUKDateForCRIS(iso) {
             if (!iso) return 'Not specified';
             const [y, m, d] = iso.split('-');
-            return `${d}/${m}/${y}`;
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+            const monthName = months[parseInt(m) - 1];
+            return `${d} ${monthName} ${y} (${d}/${m}/${y})`;
         }
 
         function copyReport() {
             const fields = [
-                { id: 'date',          label: 'Date of Previous USS',          format: formatUKDateLong },
+                { id: 'date',          label: 'Date of Previous USS',          format: formatUKDateForCRIS },
                 { id: 'liverDesc',     label: 'Liver Vasculature Description' },
                 { id: 'portalVein',    label: 'Portal Vein Patent' },
                 { id: 'pvVelocity',    label: 'PV Velocity (cm/s)' },
@@ -238,19 +232,9 @@
                 report += `${label}: ${value}\n`;
             });
 
-            // Final fallback: add short format in parentheses if long format is used
-            const dateEl = document.getElementById('date');
-            if (dateEl.value) {
-                const short = formatUKDateShort(dateEl.value);
-                report = report.replace(
-                    /Date of Previous USS: .+/,
-                    `$& (${short})`
-                );
-            }
-
             navigator.clipboard.writeText(report).then(
-                () => alert('Report copied to clipboard!\n\nNow paste into CRIS — date will appear as:\n"30 October 2025 (30/10/2025)"'),
-                () => alert('Failed to copy. Try again.')
+                () => alert('Copied!\n\nIn CRIS, it will appear as:\n"30 October 2025 (30/10/2025)"\n\nThis format cannot be auto-reformatted.'),
+                () => alert('Copy failed. Try again.')
             );
         }
     </script>
