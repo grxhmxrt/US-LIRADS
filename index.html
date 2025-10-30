@@ -191,21 +191,20 @@
             });
         }
 
-        // Convert YYYY-MM-DD → "30 October 2025 (30/10/2025)"
-        function formatUKDateForCRIS(iso) {
+        // Convert YYYY-MM-DD → "30 October 2025"
+        function formatUKDateLong(iso) {
             if (!iso) return 'Not specified';
             const [y, m, d] = iso.split('-');
             const months = [
-                'January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December'
+                'January','February','March','April','May','June',
+                'July','August','September','October','November','December'
             ];
-            const monthName = months[parseInt(m) - 1];
-            return `${d} ${monthName} ${y} (${d}/${m}/${y})`;
+            return `${d} ${months[parseInt(m)-1]} ${y}`;
         }
 
         function copyReport() {
             const fields = [
-                { id: 'date',          label: 'Date of Previous USS',          format: formatUKDateForCRIS },
+                { id: 'date',          label: 'Date of Previous USS',          format: formatUKDateLong },
                 { id: 'liverDesc',     label: 'Liver Vasculature Description' },
                 { id: 'portalVein',    label: 'Portal Vein Patent' },
                 { id: 'pvVelocity',    label: 'PV Velocity (cm/s)' },
@@ -233,7 +232,7 @@
             });
 
             navigator.clipboard.writeText(report).then(
-                () => alert('Copied!\n\nIn CRIS, it will appear as:\n"30 October 2025 (30/10/2025)"\n\nThis format cannot be auto-reformatted.'),
+                () => alert('Report copied to clipboard!'),
                 () => alert('Copy failed. Try again.')
             );
         }
