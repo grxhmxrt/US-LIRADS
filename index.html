@@ -20,69 +20,166 @@
             --transition: all 0.25s ease;
         }
 
-        * { box-sizing: border-box; margin:0; padding:0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            min-height: 100vh; padding:24px;
-            display:flex; justify-content:center; align-items:flex-start;
-            color:var(--text-primary); line-height:1.6;
+            min-height: 100vh;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: var(--text-primary);
+            line-height: 1.6;
         }
 
         .container {
-            background:var(--card-bg); padding:28px; border-radius:var(--radius);
-            box-shadow:var(--shadow); max-width:640px; width:100%; margin-top:20px;
+            background: var(--card-bg);
+            padding: 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 640px;
+            width: 100%;
+            margin-top: 20px;
         }
 
-        h1 { text-align:center; color:var(--text-primary); margin-bottom:16px;
-            font-weight:700; font-size:1.75rem; letter-spacing:-.025em; }
+        h1 {
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 1.75rem;
+            letter-spacing: -0.025em;
+        }
 
-        .lirads-reference { text-align:center; font-size:.875rem; color:var(--text-secondary);
-            margin-bottom:24px; font-style:italic; }
+        .lirads-reference {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
 
-        .button-container { display:flex; justify-content:center; gap:16px;
-            margin-bottom:24px; flex-wrap:wrap; }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
 
-        button { padding:10px 20px; background:var(--primary); color:#fff;
-            border:none; border-radius:50px; cursor:pointer; font-size:.9375rem;
-            font-weight:600; transition:var(--transition); min-width:120px; }
-        button:hover { background:var(--primary-dark);
-            transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,99,235,.3); }
-        button:active { transform:translateY(0); }
+        button {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            transition: var(--transition);
+            min-width: 120px;
+        }
 
-        table { width:100%; border-collapse:separate; border-spacing:0;
-            margin-bottom:20px; overflow:hidden; border-radius:var(--radius);
-            box-shadow:0 1px 3px rgba(0,0,0,.1); }
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
 
-        th { background:var(--primary); color:#fff; font-weight:600;
-            padding:14px 16px; text-align:left; font-size:.9375rem; letter-spacing:.025em; }
+        button:active {
+            transform: translateY(0);
+        }
 
-        td { padding:0; border-bottom:1px solid var(--border); }
-        tr:last-child td { border-bottom:none; }
-        tr:nth-child(even) td { background:#f8fafc; }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
 
-        .input-cell { padding:12px 16px; }
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 0.9375rem;
+            letter-spacing: 0.025em;
+        }
 
-        input, select { width:100%; padding:10px 12px; border:1.5px solid var(--border);
-            border-radius:8px; font-size:.9375rem; background:#fff;
-            transition:var(--transition); font-family:inherit; }
-        input:focus, select:focus { outline:none; border-color:var(--primary);
-            box-shadow:0 0 0 3px rgba(37,99,235,.15); }
+        td {
+            padding: 0;
+            border-bottom: 1px solid var(--border);
+        }
 
-        select { appearance:none;
-            background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20fill%3D%22%236b7280%22%20d%3D%22M0%2C0l6%2C6l6-6H0z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat:no-repeat; background-position:right 12px center;
-            padding-right:32px; }
+        tr:last-child td {
+            border-bottom: none;
+        }
 
-        .copyright { text-align:center; font-size:.75rem; color:#94a3b8;
-            margin-top:28px; padding-top:16px; border-top:1px solid #e2e8f0; }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
 
-        @media (max-width:480px) {
-            .container { padding:20px; }
-            .button-container { flex-direction:column; }
-            button { width:100%; }
-            h1 { font-size:1.5rem; }
+        .input-cell {
+            padding: 12px 16px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            background: white;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20fill%3D%22%236b7280%22%20d%3D%22M0%2C0l6%2C6l6-6H0z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+        }
+
+        .copyright {
+            text-align: center;
+1            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            .button-container {
+                flex-direction: column;
+            }
+            button {
+                width: 100%;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -97,7 +194,10 @@
         </div>
 
         <table>
-            <tr><th>Finding</th><th>Details</th></tr>
+            <tr>
+                <th>Finding</th>
+                <th>Details</th>
+            </tr>
             <tr>
                 <td>Date of Previous USS</td>
                 <td class="input-cell"><input type="date" id="date" aria-label="Date of Previous Ultrasound"></td>
@@ -191,49 +291,31 @@
             });
         }
 
-        // Convert YYYY-MM-DD → "30 October 2025"
-        function formatUKDateLong(iso) {
-            if (!iso) return 'Not specified';
-            const [y, m, d] = iso.split('-');
-            const months = [
-                'January','February','March','April','May','June',
-                'July','August','September','October','November','December'
-            ];
-            return `${d} ${months[parseInt(m)-1]} ${y}`;
-        }
-
         function copyReport() {
             const fields = [
-                { id: 'date',          label: 'Date of Previous USS',          format: formatUKDateLong },
-                { id: 'liverDesc',     label: 'Liver Vasculature Description' },
-                { id: 'portalVein',    label: 'Portal Vein Patent' },
-                { id: 'pvVelocity',    label: 'PV Velocity (cm/s)' },
-                { id: 'hepaticVeins',  label: 'Hepatic Veins Patent' },
+                { id: 'date', label: 'Date of Previous USS' },
+                { id: 'liverDesc', label: 'Liver Vasculature Description' },
+                { id: 'portalVein', label: 'Portal Vein Patent' },
+                { id: 'pvVelocity', label: 'PV Velocity (cm/s)' },
+                { id: 'hepaticVeins', label: 'Hepatic Veins Patent' },
                 { id: 'paraUmbilical', label: 'Recanalisation of Para-Umbilical Vein' },
-                { id: 'spleenSize',    label: 'Spleen Size (cm)' },
-                { id: 'liverVis',      label: 'Liver Visualisation' },
-                { id: 'liverLesion',   label: 'Liver Lesion(s)' }
+                { id: 'spleenSize', label: 'Spleen Size (cm)' },
+                { id: 'liverVis', label: 'Liver Visualisation' },
+                { id: 'liverLesion', label: 'Liver Lesion(s)' }
             ];
 
             let report = 'LI-RADS Ultrasound Report\n';
             report += '='.repeat(32) + '\n\n';
 
-            fields.forEach(({ id, label, format }) => {
+            fields.forEach(({ id, label }) => {
                 const el = document.getElementById(id);
-                let value = el.value.trim();
-
-                if (format) {
-                    value = format(value);
-                } else if (!value) {
-                    value = 'Not specified';
-                }
-
+                const value = el.value.trim() || 'Not specified';
                 report += `${label}: ${value}\n`;
             });
 
             navigator.clipboard.writeText(report).then(
                 () => alert('Report copied to clipboard!'),
-                () => alert('Copy failed. Try again.')
+                () => alert('Failed to copy report. Please try again.')
             );
         }
     </script>
